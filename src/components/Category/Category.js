@@ -39,10 +39,10 @@ class Category extends Component {
             <div id="sidebar" class="nav-collapse">
               <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                  <a href="index.html">
+                  <Link to="/dashboard">
                     <i class="fa fa-dashboard" />
                     <span>Dashboard</span>
-                  </a>
+                  </Link>
                 </li>
                 <li class="sub-menu">
                   <a href="javascript:;">
@@ -65,7 +65,7 @@ class Category extends Component {
                   </a>
                   <ul class="sub">
                     <li>
-                      <a href="/add_story">Create</a>
+                      <Link href="/add_story">Create</Link>
                     </li>
                     <li>
                       <a href="#">View</a>
@@ -73,10 +73,10 @@ class Category extends Component {
                   </ul>
                 </li>
                 <li>
-                  <a href="fontawesome.html">
+                  <Link to="/profile">
                     <i class="fa fa-bullhorn" />
                     <span>Profile </span>
-                  </a>
+                  </Link>
                 </li>
 
                 <li>
