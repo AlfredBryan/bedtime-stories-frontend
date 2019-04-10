@@ -2,12 +2,10 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
 class Dashboard extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div>
@@ -101,10 +99,10 @@ class Dashboard extends Component {
                   </a>
                 </li>
                 <li>
-                  <a href="login.html">
+                  <Link to="/login">
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
               {/*sidebar menu end */}
