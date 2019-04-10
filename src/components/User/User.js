@@ -86,7 +86,7 @@ class User extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/login">
+                  <Link to="/">
                     <i class="fa fa-user" />
                     <span>Log Out</span>
                   </Link>

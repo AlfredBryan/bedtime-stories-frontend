@@ -91,7 +91,7 @@ class CreateStory extends Component {
                 </li>
 
                 <li>
-                  <Link to="/login">
+                  <Link to="/">
                     <i class="fa fa-user" />
                     <span>Log Out</span>
                   </Link>

@@ -1,12 +1,11 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
 
 class Category extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div>
@@ -81,10 +80,10 @@ class Category extends Component {
                 </li>
 
                 <li>
-                  <a href="login.html">
+                  <Link to="/">
                     <i class="fa fa-user" />
                     <span>Log Out</span>
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
