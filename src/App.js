@@ -9,6 +9,7 @@ import Login from "./components/User/Login";
 import { Switch, Route } from "react-router-dom";
 import Register from "./components/User/Register";
 import Authenticate from "./components/hoc/WithAuth";
+import {ProtectedRoute} from "./components/hoc/ProtectedRoute";
 
 class App extends Component {
   render() {
@@ -17,10 +18,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
-            <Route exact path="/profile" component={Profile} />
-            <Route exact path="/add_story" component={CreateStory} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/user" component={User} />
+            <ProtectedRoute exact path="/profile" component={Profile} />
+            <ProtectedRoute exact path="/add_story" component={CreateStory} />
+            <ProtectedRoute exact path="/dashboard" component={Dashboard} />
+            <ProtectedRoute exact path="/user" component={User} />
         </Switch>
       </div>
     );
