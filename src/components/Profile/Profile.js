@@ -1,13 +1,11 @@
 import React, { Component } from "react";
-import {Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 class Profile extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
       <div>
@@ -31,7 +29,10 @@ class Profile extends Component {
                 {/*user login dropdown start*/}
                 <li class="dropdown">
                   <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img alt="" src={require("../../images/avatar1_small.jpg")} />
+                    <img
+                      alt=""
+                      src={require("../../images/avatar1_small.jpg")}
+                    />
                     <span class="username">John Doe</span>
                     <b class="caret" />
                   </a>
@@ -108,7 +109,10 @@ class Profile extends Component {
                     <div class="panel-body profile-information">
                       <div class="col-md-3">
                         <div class="profile-pic text-center">
-                          <img src={require("../../images/lock_thumb.jpg")} alt="" />
+                          <img
+                            src={require("../../images/lock_thumb.jpg")}
+                            alt=""
+                          />
                         </div>
                       </div>
                       <div class="col-md-6">
@@ -116,7 +120,7 @@ class Profile extends Component {
                           <h1>David Rojormillan</h1>
                           <span class="text-muted">Email: | Phone: </span>
                           <br />
-                          <Link href="/add_story" class="btn btn-primary">
+                          <Link to="/add_story" class="btn btn-primary">
                             Add Story
                           </Link>
                         </div>

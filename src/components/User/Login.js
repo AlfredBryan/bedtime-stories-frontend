@@ -1,17 +1,51 @@
 import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import axios from "axios";
 
 class Login extends Component {
-    constructor(props){
-        super(props)
-        this.state = {
-            
+  constructor(props) {
+    super(props);
+    this.state = {
+      email: "",
+      password: ""
+    };
+  }
+  //Admin login function
+  handleSubmit = e => {
+    e.preventDefault();
+    let { email, password } = this.state;
+    axios
+      .post("http://localhost:4000/api/v1/user/login", {
+        email,
+        password
+      })
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          localStorage.setItem("token", res.data.token);
+          this.props.history.replace("/profile");
         }
-    }
+      })
+      .catch(error => {
+        if (error) {
+          this.setState({
+            errorMessage: "Error: confirm details and try again"
+          });
+        }
+      });
+  };
+
+  //text change handler
+  handleChange = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    });
+  };
   render() {
     return (
       <div>
         <div class="container">
-          <form class="form-signin" action="index.html">
+          <form class="form-signin" onSubmit={this.handleSubmit}>
             <h2 class="form-signin-heading">sign in now</h2>
             <div class="login-wrap">
               <div class="user-login-info">
@@ -19,82 +53,26 @@ class Login extends Component {
                   type="text"
                   class="form-control"
                   placeholder="Email"
-                  autofocus
+                  name="email"
+                  value={this.state.email}
+                  onChange={this.handleChange}
                 />
                 <input
                   type="password"
                   class="form-control"
                   placeholder="Password"
+                  name="password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
                 />
               </div>
-              <label class="checkbox">
-                <input type="checkbox" value="remember-me" /> Remember me
-                <span class="pull-right">
-                  <a data-toggle="modal" href="#myModal">
-                    {" "}
-                    Forgot Password?
-                  </a>
-                </span>
-              </label>
-              <button class="btn btn-lg btn-login btn-block" type="submit">
+              <button
+                onClick={this.handleSubmit}
+                class="btn btn-lg btn-login btn-block"
+                type="submit"
+              >
                 Sign in
               </button>
-
-              <div class="registration">
-                Don't have an account yet?
-                <a class="" href="registration.html">
-                  Create an account
-                </a>
-              </div>
-            </div>
-
-            <div
-              aria-hidden="true"
-              aria-labelledby="myModalLabel"
-              role="dialog"
-              tabindex="-1"
-              id="myModal"
-              class="modal fade"
-            >
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <button
-                      type="button"
-                      class="close"
-                      data-dismiss="modal"
-                      aria-hidden="true"
-                    >
-                      &times;
-                    </button>
-                    <h4 class="modal-title">Forgot Password ?</h4>
-                  </div>
-                  <div class="modal-body">
-                    <p>
-                      Enter your e-mail address below to reset your password.
-                    </p>
-                    <input
-                      type="text"
-                      name="email"
-                      placeholder="Email"
-                      autocomplete="off"
-                      class="form-control placeholder-no-fix"
-                    />
-                  </div>
-                  <div class="modal-footer">
-                    <button
-                      data-dismiss="modal"
-                      class="btn btn-default"
-                      type="button"
-                    >
-                      Cancel
-                    </button>
-                    <button class="btn btn-success" type="button">
-                      Submit
-                    </button>
-                  </div>
-                </div>
-              </div>
             </div>
           </form>
         </div>
