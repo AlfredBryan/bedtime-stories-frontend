@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-
+import axios from 'axios'
 
 class Category2 extends React.Component{
 
@@ -8,7 +8,7 @@ class Category2 extends React.Component{
         super(props)
         this.state = {
             name: "", 
-            catId : ""
+            
         }
     }
 
@@ -18,8 +18,18 @@ class Category2 extends React.Component{
         console.log("Working")
     }
 
-    handleClick = (event) =>{
+    handleSubmit = (event) =>{
         event.preventDefault();
+        axios.post('https://dragon-legend-5.herokuapp.com/api/v1/category/create', this.state).
+            then((res)=>{
+                console.log(res)
+                if(res.status === 200){
+                    console.log('Working')
+                }
+
+            }).catch((err)=>{
+                console.log(err)
+            })
            
     }
 
