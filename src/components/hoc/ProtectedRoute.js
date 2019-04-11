@@ -7,7 +7,7 @@ export const ProtectedRoute = ({component: Component, ...rest})=>{
       <Route
          {...rest} render={
             props=>{
-               const user = '';
+               let user = '';
                const jwt = localStorage.getItem("token");
                if (!jwt) {
                   props.history.push("/");
