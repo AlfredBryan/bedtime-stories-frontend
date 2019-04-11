@@ -24,6 +24,7 @@ class Login extends Component {
         if (res.status === 200) {
           localStorage.setItem("token", res.data.token);
           this.props.history.replace("/profile");
+          console.log(res.data.token);
         }
       })
       .catch(error => {

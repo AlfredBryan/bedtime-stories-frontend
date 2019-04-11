@@ -17,10 +17,12 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={Login} />
           <Route exact path="/register" component={Register} />
+          <Authenticate>
             <Route exact path="/profile" component={Profile} />
             <Route exact path="/add_story" component={CreateStory} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/user" component={User} />
+          </Authenticate>
         </Switch>
       </div>
     );
