@@ -15,16 +15,15 @@ class Login extends Component {
     e.preventDefault();
     let { email, password } = this.state;
     axios
-      .post("http://localhost:4000/api/v1/user/login", {
+      .post("https://dragon-legend-5.herokuapp.com/api/v1/user/login", {
         email,
         password
       })
       .then(res => {
         console.log(res);
         if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
-          console.log(res.data.token);
         }
       })
       .catch(error => {
@@ -74,6 +73,10 @@ class Login extends Component {
               >
                 Sign in
               </button>
+              <div class="registration">
+                Don't have an account yet?
+                <Link to="/register">Register</Link>
+              </div>
             </div>
           </form>
         </div>
