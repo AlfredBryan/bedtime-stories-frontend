@@ -8,6 +8,7 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import Login from "./components/User/Login";
 import { Switch, Route } from "react-router-dom";
 import Register from "./components/User/Register";
+import Category from './components/Category/Category2'
 import Authenticate from "./components/hoc/WithAuth";
 
 class App extends Component {
@@ -21,6 +22,7 @@ class App extends Component {
             <Route exact path="/add_story" component={CreateStory} />
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/user" component={User} />
+            <Route exact path="/categories" component={Category} />
         </Switch>
       </div>
     );
