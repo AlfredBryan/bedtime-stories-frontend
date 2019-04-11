@@ -33,7 +33,7 @@ class Profile extends Component {
                       alt=""
                       src={require("../../images/avatar1_small.jpg")}
                     />
-                    <span class="username">John Doe</span>
+                    <span class="username">{this.props.username}</span>
                     <b class="caret" />
                   </a>
                 </li>
