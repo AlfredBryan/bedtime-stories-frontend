@@ -20,7 +20,7 @@ class Register extends Component {
     e.preventDefault();
     let { name, email, designation, password, is_admin } = this.state;
     axios
-      .post("http://localhost:4000/api/v1/user/register", {
+      .post("https://dragon-legend-5.herokuapp.com/api/v1/user/register", {
         name,
         email,
         designation,
@@ -28,9 +28,9 @@ class Register extends Component {
         is_admin
       })
       .then(res => {
-        console.log(res)
+        console.log(res);
         if (res.status === 200) {
-          localStorage.setItem("token", res.data.token);
+          localStorage.setItem("token", res.data.data.token);
           this.props.history.replace("/profile");
         }
       })
