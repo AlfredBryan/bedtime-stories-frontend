@@ -1,159 +1,120 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import Aside from './Aside';
+import Header from './Header'
+import Axios from "axios";
 
+const axios =  Axios.create({
+  baseURL:"http://dragon-legend-5.herokuapp.com/api/v1/story",
+  withCredentials:true,
+  headers:{
+    Authorization: "",
+    token:""
+  },
+  auth:{
+    username:"raji",
+    password:"12341234"
+  }
+})
 class CreateStory extends Component {
     constructor(props){
         super(props)
         this.state = {
-            
+            title:'',
+            description:'',
+            age_filter:"",
+            category:""
         }
+    }
+     
+    onSubmit = (e) =>{
+      e.preventDefault();
+      const data = {
+        ...this.state
+      }
+      axios.post('/create', {
+       data:data
+      })
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
+    }
+
+    onChange= (e) => {
+      this.setState({ [e.target.name]: e.target.value });
+      console.log(e.target.value)
     }
   render() {
     return (
       <div>
         <section id="container">
           {/*header start */}
-          <header class="header fixed-top clearfix">
-            {/* logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
-                <img src={require("../../images/logo.png")} alt="" />
-              </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
-              </div>
-            </div>
-            {/*logo end */}
-
-            <div class="top-nav clearfix">
-              {/*search & user info start */}
-              <ul class="nav pull-right top-menu">
-                {/*user login dropdown start */}
-                <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="/">
-                    <img
-                      alt=""
-                      src={require("../../images/avatar1_small.jpg")}
-                    />
-                    <span class="username">John Doe</span>
-                    <b class="caret" />
-                  </a>
-                </li>
-                {/*user login dropdown end */}
-              </ul>
-              {/*search & user info end */}
-            </div>
-          </header>
+         <Header />
           {/*header end */}
-          <aside>
-            <div id="sidebar" class="nav-collapse">
-              {/*sidebar menu start */}
-              <ul class="sidebar-menu" id="nav-accordion">
-                <li>
-                  <a href="index.html">
-                    <i class="fa fa-dashboard" />
-                    <span>Dashboard</span>
-                  </a>
-                </li>
-                <li class="sub-menu">
-                  <a href="javascript:;">
-                    <i class="fa fa-laptop" />
-                    <span>Categories</span>
-                  </a>
-                  <ul class="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li class="sub-menu">
-                  <a href="javascript:;">
-                    <i class="fa fa-book" />
-                    <span>Stories</span>
-                  </a>
-                  <ul class="sub">
-                    <li>
-                      <a href="#">Create</a>
-                    </li>
-                    <li>
-                      <a href="#">View</a>
-                    </li>
-                  </ul>
-                </li>
-                <li>
-                  <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
-                    <span>Profile </span>
-                  </Link>
-                </li>
-
-                <li>
-                  <Link to="/">
-                    <i class="fa fa-user" />
-                    <span>Log Out</span>
-                  </Link>
-                </li>
-              </ul>
-              {/* sidebar menu end*/}
-            </div>
-          </aside>
+          <Aside />
           {/*sidebar end */}
           {/*main content start */}
-          <section id="main-content" class="">
-            <section class="wrapper">
+          <section id="main-content" className="">
+            <section className="wrapper">
               {/*page start */}
 
               {/*start of header */}
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading">Add Story</header>
-                    <div class="panel-body">
-                      <div class="position-center">
-                        <form>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Title</label>
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading">Add Story</header>
+                    <div className="panel-body">
+                      <div className="position-center">
+                        <form onSubmit={this.onSubmit}>
+                          <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Title</label>
                             <input
                               type="text"
-                              class="form-control"
+                              name='title'
+                              className="form-control"
                               id="exampleInputEmail1"
-                              placeholder="Enter email"
+                              placeholder="Enter Title"
+                              value={this.state.title}
+                              onChange={this.onChange}
                             />
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">
+                          <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">
                               Select Category
                             </label>
-                            <select class="form-control m-bot15">
-                              <option>Fairy Tale</option>
+                            <select value={this.state.value} onChange={this.onChange} className="form-control m-bot15">
+                              <option value="Fairy Tale">Fairy Tale</option>
                             </select>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputFile">Add Image</label>
-                            <input type="file" id="exampleInputFile" />
-                            <p class="help-block">Format: PNG, JPG (1MB)</p>
+                          <div className="form-group">
+                            <label htmlFor="image input">Add Image</label>
+                            <input name="image" type="file" id="exampleInputFile" />
+                            <p className="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Description</label>
+                          <div className="form-group">
+                            <label htmlFor="description">Description</label>
                             <textarea
-                              class="form-control ckeditor"
-                              name="editor1"
+                              className="form-control ckeditor"
+                              name="description"
                               rows="6"
+                              value={this.state.description}
+                              onChange={this.onChange}
                             />
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputEmail1">Age Filter</label>
-                            <select class="form-control m-bot15">
-                              <option>0 - 3</option>
-                              <option>4 - 7</option>
-                              <option>10 - 11</option>
+                          <div className="form-group">
+                            <label htmlFor="exampleInputEmail1">Age Filter</label>
+                            <select name="age_filter" value={this.state.age_filter} onChange={this.onChange} className="form-control m-bot15">
+                              <option value="0 - 3">0 - 3</option>
+                              <option value="4 - 7">4 - 7</option>
+                              <option value="8-11">8 - 11</option>
                             </select>
                           </div>
-                          <div class="form-group">
-                            <button type="submit" class="btn btn-info">
+                          <div className="form-group">
+                            <button type="submit" value="submit" className="btn btn-info">
                               Submit
                             </button>
                           </div>
