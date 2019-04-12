@@ -1,67 +1,72 @@
-import React from 'react';
+import React from "react";
 import { Link } from "react-router-dom";
-import axios from 'axios'
+import axios from "axios";
 
-class Category2 extends React.Component{
+class Category2 extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      name: ""
+    };
+  }
 
-    constructor(props){
-        super(props)
-        this.state = {
-            name: "", 
-            
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+    console.log("Working");
+  };
+
+  handleSubmit = event => {
+    event.preventDefault();
+    axios
+      .post(
+        "https://dragon-legend-5.herokuapp.com/api/v1/category/create",
+        this.state
+      )
+      .then(res => {
+        console.log(res);
+        if (res.status === 200) {
+          console.log("Working");
         }
-    }
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  };
 
-    handleChange = (event) => {
-        const {name, value} = event.target
-        this.setState({[name] : value})
-        console.log("Working")
-    }
-
-    handleSubmit = (event) =>{
-        event.preventDefault();
-        axios.post('https://dragon-legend-5.herokuapp.com/api/v1/category/create', this.state).
-            then((res)=>{
-                console.log(res)
-                if(res.status === 200){
-                    console.log('Working')
-                }
-
-            }).catch((err)=>{
-                console.log(err)
-            })
-           
-    }
-
-    render(){
-        return(
-        <div>
-            <section id="container">
+  render() {
+    return (
+      <div>
+        <section id="container">
           {/*header start*/}
-          <header class="header fixed-top clearfix">
+          <header className="header fixed-top clearfix">
             {/*logo start*/}
-            <div class="brand">
-              <a href="index.html" class="logo">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
             {/*logo end*/}
 
-            <div class="top-nav clearfix">
+            <div className="top-nav clearfix">
               {/*search & user info start*/}
-              <ul class="nav pull-right top-menu">
+              <ul className="nav pull-right top-menu">
                 {/*user login dropdown start*/}
-                <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="/">
+                <li className="dropdown">
+                  <a
+                    data-toggle="dropdown"
+                    className="dropdown-toggle"
+                    href="/"
+                  >
                     <img
                       alt=""
                       src={require("../../images/avatar1_small.jpg")}
                     />
-                    <span class="username">John Doe</span>
-                    <b class="caret" />
+                    <span className="username">John Doe</span>
+                    <b className="caret" />
                   </a>
                 </li>
                 {/*user login dropdown end*/}
@@ -72,21 +77,21 @@ class Category2 extends React.Component{
           {/*header end*/}
           {/*sidebar start*/}
           <aside>
-            <div id="sidebar" class="nav-collapse">
+            <div id="sidebar" className="nav-collapse">
               {/*sidebar menu start*/}
-              <ul class="sidebar-menu" id="nav-accordion">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -95,12 +100,12 @@ class Category2 extends React.Component{
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -111,14 +116,14 @@ class Category2 extends React.Component{
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
 
                 <li>
                   <Link href="/">
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </Link>
                 </li>
@@ -129,41 +134,39 @@ class Category2 extends React.Component{
           {/*sidebar end*/}
           {/*main content start*/}
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-md-12">
-                  <section class="panel">
-                    
-                  </section>
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-md-12">
+                  <section className="panel" />
                 </div>
               </div>{" "}
               {/* End*/}
               {/*start of header*/}
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading">Add Categories</header>
-                    <div class="panel-body">
-                      <div class="position-center">
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading">Add Categories</header>
+                    <div className="panel-body">
+                      <div className="position-center">
                         <form>
-                            <div className="form-group">
-                               <label for="createCategoryText">
-                                   Add a new Category
-                                </label>
-                                <input
-                                    onChange={this.handleChange} 
-                                    name="createCategoryText"
-                                    type="text"
-                                    className="form-control"
-                                    id="createCategoryText"
-                                    placeholder="Enter new category">
-                                </input>    
-                            </div>
-                            <div className="form-group">
-                                <button type="submit" className="btn btn-primary">
-                                    submit
-                                </button>
-                            </div>
+                          <div className="form-group">
+                            <label for="createCategoryText">
+                              Add a new Category
+                            </label>
+                            <input
+                              onChange={this.handleChange}
+                              name="createCategoryText"
+                              type="text"
+                              className="form-control"
+                              id="createCategoryText"
+                              placeholder="Enter new category"
+                            />
+                          </div>
+                          <div className="form-group">
+                            <button type="submit" className="btn btn-primary">
+                              submit
+                            </button>
+                          </div>
                         </form>
                       </div>
                     </div>
@@ -174,9 +177,8 @@ class Category2 extends React.Component{
           </section>
         </section>
       </div>
-            )
-    }
-
+    );
+  }
 }
 
-export default Category2
+export default Category2;

@@ -10,46 +10,50 @@ class Category extends Component {
     return (
       <div>
         <section id="container">
-          <header class="header fixed-top clearfix">
-            <div class="brand">
-              <a href="index.html" class="logo">
+          <header className="header fixed-top clearfix">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
 
-            <div class="top-nav clearfix">
-              <ul class="nav pull-right top-menu">
-                <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <div className="top-nav clearfix">
+              <ul className="nav pull-right top-menu">
+                <li className="dropdown">
+                  <a
+                    data-toggle="dropdown"
+                    className="dropdown-toggle"
+                    href="#"
+                  >
                     <img
                       alt=""
                       src={require("../../images/avatar1_small.jpg")}
                     />
-                    <span class="username">John Doe</span>
-                    <b class="caret" />
+                    <span className="username">John Doe</span>
+                    <b className="caret" />
                   </a>
                 </li>
               </ul>
             </div>
           </header>
           <aside>
-            <div id="sidebar" class="nav-collapse">
-              <ul class="sidebar-menu" id="nav-accordion">
+            <div id="sidebar" className="nav-collapse">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -58,12 +62,12 @@ class Category extends Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <Link href="/add_story">Create</Link>
                     </li>
@@ -74,53 +78,53 @@ class Category extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
 
                 <li>
                   <Link to="/">
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </Link>
                 </li>
               </ul>
             </div>
           </aside>
-          <section id="main-content" class="">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-lg-12">
-                  <section class="panel">
-                    <header class="panel-heading">Add Category</header>
-                    <div class="panel-body">
-                      <div class="position-center">
+          <section id="main-content" className="">
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-lg-12">
+                  <section className="panel">
+                    <header className="panel-heading">Add Category</header>
+                    <div className="panel-body">
+                      <div className="position-center">
                         <form role="form">
-                          <div class="form-group">
+                          <div className="form-group">
                             <label for="exampleInputEmail1">Title</label>
                             <input
                               type="text"
-                              class="form-control"
+                              className="form-control"
                               id="exampleInputEmail1"
                               placeholder="Enter email"
                             />
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label for="exampleInputFile">Add Image</label>
                             <input type="file" id="exampleInputFile" />
-                            <p class="help-block">Format: PNG, JPG (1MB)</p>
+                            <p className="help-block">Format: PNG, JPG (1MB)</p>
                           </div>
-                          <div class="form-group">
+                          <div className="form-group">
                             <label for="exampleInputEmail1">Description</label>
                             <textarea
-                              class="form-control ckeditor"
+                              className="form-control ckeditor"
                               name="editor1"
                               rows="6"
                             />
                           </div>
-                          <div class="form-group">
-                            <button type="submit" class="btn btn-info">
+                          <div className="form-group">
+                            <button type="submit" className="btn btn-info">
                               Submit
                             </button>
                           </div>

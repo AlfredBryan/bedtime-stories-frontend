@@ -74,10 +74,10 @@ class Dashboard extends Component {
                 </li>
                 <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="/add_story">Create</a>
                     </li>
@@ -88,19 +88,19 @@ class Dashboard extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <a href="fontawesome.html">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Users </span>
                   </a>
                 </li>
                 <li>
                   <Link to="/">
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </Link>
                 </li>
@@ -111,33 +111,33 @@ class Dashboard extends Component {
           {/*sidebar end */}
           {/* main content start*/}
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-sm-12">
-                  <section class="panel">
-                    <header class="panel-heading">
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-sm-12">
+                  <section className="panel">
+                    <header className="panel-heading">
                       All Stories
-                      <span class="tools pull-right">
-                        <a href="javascript:;" class="fa fa-chevron-down" />
+                      <span className="tools pull-right">
+                        <a href="javascript:;" className="fa fa-chevron-down" />
                       </span>
                     </header>
-                    <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                        <div class="clearfix">
-                          <div class="btn-group">
+                    <div className="panel-body">
+                      <div className="adv-table editable-table ">
+                        <div className="clearfix">
+                          <div className="btn-group">
                             <Link to="/add_story">
                               <button
                                 id="editable-sample_new"
-                                class="btn btn-primary"
+                                className="btn btn-primary"
                               >
-                                Add New Story <i class="fa fa-plus" />
+                                Add New Story <i className="fa fa-plus" />
                               </button>
                             </Link>
                           </div>
                         </div>
-                        <div class="space15" />
+                        <div className="space15" />
                         <table
-                          class="table table-striped table-hover table-bordered"
+                          className="table table-striped table-hover table-bordered"
                           id="editable-sample"
                         >
                           <thead>
@@ -150,19 +150,19 @@ class Dashboard extends Component {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="">
+                            <tr className="">
                               <td>
                                 <a href="#">Alice in wonderland</a>{" "}
                               </td>
                               <td>Thriller </td>
                               <td>0 - 3 </td>
                               <td>
-                                <a class="edit" href="javascript:;">
+                                <a className="edit" href="javascript:;">
                                   Edit
                                 </a>
                               </td>
                               <td>
-                                <a class="delete" href="javascript:;">
+                                <a className="delete" href="javascript:;">
                                   Delete
                                 </a>
                               </td>

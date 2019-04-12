@@ -10,26 +10,30 @@ class User extends Component {
     return (
       <div>
         <section id="container">
-          <header class="header fixed-top clearfix">
-            <div class="brand">
-              <a href="index.html" class="logo">
+          <header className="header fixed-top clearfix">
+            <div className="brand">
+              <a href="index.html" className="logo">
                 <img src={require("../../images/logo.png")} alt="" />
               </a>
-              <div class="sidebar-toggle-box">
-                <div class="fa fa-bars" />
+              <div className="sidebar-toggle-box">
+                <div className="fa fa-bars" />
               </div>
             </div>
 
-            <div class="top-nav clearfix">
-              <ul class="nav pull-right top-menu">
-                <li class="dropdown">
-                  <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+            <div className="top-nav clearfix">
+              <ul className="nav pull-right top-menu">
+                <li className="dropdown">
+                  <a
+                    data-toggle="dropdown"
+                    className="dropdown-toggle"
+                    href="#"
+                  >
                     <img
                       alt=""
                       src={require("../../images/avatar1_small.jpg")}
                     />
-                    <span class="username">John Doe</span>
-                    <b class="caret" />
+                    <span className="username">John Doe</span>
+                    <b className="caret" />
                   </a>
                 </li>
               </ul>
@@ -37,20 +41,20 @@ class User extends Component {
           </header>
 
           <aside>
-            <div id="sidebar" class="nav-collapse">
-              <ul class="sidebar-menu" id="nav-accordion">
+            <div id="sidebar" className="nav-collapse">
+              <ul className="sidebar-menu" id="nav-accordion">
                 <li>
                   <Link to="/dashboard">
-                    <i class="fa fa-dashboard" />
+                    <i className="fa fa-dashboard" />
                     <span>Dashboard</span>
                   </Link>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-laptop" />
+                    <i className="fa fa-laptop" />
                     <span>Categories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -59,12 +63,12 @@ class User extends Component {
                     </li>
                   </ul>
                 </li>
-                <li class="sub-menu">
+                <li className="sub-menu">
                   <a href="javascript:;">
-                    <i class="fa fa-book" />
+                    <i className="fa fa-book" />
                     <span>Stories</span>
                   </a>
-                  <ul class="sub">
+                  <ul className="sub">
                     <li>
                       <a href="#">Create</a>
                     </li>
@@ -75,19 +79,19 @@ class User extends Component {
                 </li>
                 <li>
                   <Link to="/profile">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Profile </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/user">
-                    <i class="fa fa-bullhorn" />
+                    <i className="fa fa-bullhorn" />
                     <span>Users </span>
                   </Link>
                 </li>
                 <li>
                   <Link to="/">
-                    <i class="fa fa-user" />
+                    <i className="fa fa-user" />
                     <span>Log Out</span>
                   </Link>
                 </li>
@@ -96,21 +100,21 @@ class User extends Component {
           </aside>
 
           <section id="main-content">
-            <section class="wrapper">
-              <div class="row">
-                <div class="col-sm-12">
-                  <section class="panel">
-                    <header class="panel-heading">
+            <section className="wrapper">
+              <div className="row">
+                <div className="col-sm-12">
+                  <section className="panel">
+                    <header className="panel-heading">
                       All Users
-                      <span class="tools pull-right">
-                        <a href="javascript:;" class="fa fa-chevron-down" />
+                      <span className="tools pull-right">
+                        <a href="javascript:;" className="fa fa-chevron-down" />
                       </span>
                     </header>
-                    <div class="panel-body">
-                      <div class="adv-table editable-table ">
-                        <div class="space15" />
+                    <div className="panel-body">
+                      <div className="adv-table editable-table ">
+                        <div className="space15" />
                         <table
-                          class="table table-striped table-hover table-bordered"
+                          className="table table-striped table-hover table-bordered"
                           id="editable-sample"
                         >
                           <thead>
@@ -123,7 +127,7 @@ class User extends Component {
                             </tr>
                           </thead>
                           <tbody>
-                            <tr class="">
+                            <tr className="">
                               <td>
                                 <a href="#">John Doe</a>{" "}
                               </td>
@@ -131,7 +135,7 @@ class User extends Component {
                               <td>2347031239123 </td>
 
                               <td>
-                                <a class="delete" href="javascript:;">
+                                <a className="delete" href="javascript:;">
                                   Delete
                                 </a>
                               </td>

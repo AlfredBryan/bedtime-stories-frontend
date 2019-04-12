@@ -44,14 +44,14 @@ class Login extends Component {
   render() {
     return (
       <div>
-        <div class="container">
-          <form class="form-signin" onSubmit={this.handleSubmit}>
-            <h2 class="form-signin-heading">sign in now</h2>
-            <div class="login-wrap">
-              <div class="user-login-info">
+        <div className="container">
+          <form className="form-signin" onSubmit={this.handleSubmit}>
+            <h2 className="form-signin-heading">sign in now</h2>
+            <div className="login-wrap">
+              <div className="user-login-info">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Email"
                   name="email"
                   value={this.state.email}
@@ -59,7 +59,7 @@ class Login extends Component {
                 />
                 <input
                   type="password"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Password"
                   name="password"
                   value={this.state.password}
@@ -68,12 +68,12 @@ class Login extends Component {
               </div>
               <button
                 onClick={this.handleSubmit}
-                class="btn btn-lg btn-login btn-block"
+                className="btn btn-lg btn-login btn-block"
                 type="submit"
               >
                 Sign in
               </button>
-              <div class="registration">
+              <div className="registration">
                 Don't have an account yet?
                 <Link to="/register">Register</Link>
               </div>
